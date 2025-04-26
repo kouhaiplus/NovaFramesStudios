@@ -242,3 +242,13 @@ ul li::before {
     padding: 0 10px;
   }
 }
+.email-link {
+  color: #00ffcc;       /* Your brand teal color */
+  text-decoration: none; /* Removes underline */
+  transition: color 0.3s; /* Smooth hover effect */
+}
+
+.email-link:hover {
+  color: #ffffff;        /* White on hover */
+  text-decoration: underline; /* Optional underline */
+}
