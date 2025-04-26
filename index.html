@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nova Frames</title>
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+<div id="preloader">
+  <div class="preloader-text">Nova Frames</div>
+</div>
+  <header class="navbar">
+    <div class="logo">Nova Frames</div>
+    <nav>
+      <ul class="nav-links">
+  <li><a href="index.html">HOME</a></li>
+  <li><a href="career.html">CAREER</a></li>
+  <li><a href="about.html">ABOUT</a></li>
+  <li><a href="contact.html">CONTACT</a></li>
+</ul>
+    </nav>
+  </header>
+<main> <!-- ⭐ Wrap your main content inside main tag -->
+  <section class="hero">
+  <!--
+    <video autoplay muted loop id="heroVideo">
+      <source src="videos/hero.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+	-->
+    <div class="hero-text">
+      <h1>Artists and Innovators in the World of Digital Entertainment</h1>
+    </div>
+  </section>
+</main> <!-- End main -->
+
+  <footer>
+    <p>&copy; 2025 Nova Frames Ltd. All rights reserved.</p>
+  </footer>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const preloader = document.getElementById('preloader');
+
+    // If we've already shown the preloader this session, hide it immediately
+    if (sessionStorage.getItem('preloaderSeen') === 'true') {
+      preloader.style.display = 'none';
+      return;
+    }
+
+    // Otherwise, run the intro animation, then record that we've shown it
+    window.addEventListener('load', () => {
+      // match this delay to your CSS animation timing (3s total)
+      setTimeout(() => {
+        preloader.style.display = 'none';
+        sessionStorage.setItem('preloaderSeen', 'true');
+      }, 3000);
+    });
+  });
+</script>
+</body>
+</html>
