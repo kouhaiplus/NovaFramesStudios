@@ -1,6 +1,6 @@
-/* Enhanced main.css for Nova Frames */
-
-/* Basic Reset */
+/* -------------------------------- */
+/* 🎨 Basic Reset and Global Styles */
+/* -------------------------------- */
 * {
   margin: 0;
   padding: 0;
@@ -11,14 +11,12 @@ body, html {
   font-family: 'Poppins', sans-serif;
   color: #f0f0f0;
   background-color: #121212;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/hero-bg.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/hero-bg.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-    height: 100%;
-  margin: 0;
-  padding: 0;
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -27,12 +25,52 @@ main {
   flex: 1;
 }
 
+h2 {
+  font-size: 2rem;
+  color: #ffffff;
+  margin: 30px 0 10px 0;
+  text-shadow: 0 1px 4px rgba(0, 255, 204, 0.3);
+}
+
+section {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+ul li {
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 20px;
+}
+
+ul li::before {
+  position: absolute;
+  left: 0;
+  color: #00ffcc;
+  font-size: 1rem;
+}
+
+p, li {
+  color: #cccccc;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* -------------------------------- */
+/* 🚀 Navbar and Hamburger Menu */
+/* -------------------------------- */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 400px;
+  padding: 20px;
   background-color: rgba(0, 0, 0, 0.7);
+  position: relative;
 }
 
 .logo {
@@ -54,6 +92,7 @@ main {
   font-weight: 500;
   display: inline-block;
   transition: color 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  padding: 10px;
 }
 
 .nav-links li a:hover {
@@ -61,15 +100,71 @@ main {
   transform: scale(1.1);
 }
 
+/* 🍔 Hamburger Menu */
+.hamburger {
+  width: 30px;
+  height: 22px;
+  position: absolute; /* Positioning it absolutely */
+  right: 20px; /* Distance from the right side */
+  display: none; /* Initially hidden */
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #f0f0f0;
+  border-radius: 2px;
+  transition: all 0.4s ease;
+}
+
+/* Close "text" shown when active */
+.hamburger .close-text {
+  display: none;
+  margin-top: 5px;
+  font-size: 12px;
+  text-align: center;
+  color: #f0f0f0;
+  font-weight: bold;
+}
+
+.hamburger.active .close-text {
+  display: block;
+}
+
+/* Hamburger transforms into X */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* -------------------------------- */
+/* ✨ Hero Section & Slideshow */
+/* -------------------------------- */
 .hero {
   display: flex;
-  flex-direction: column; /* ADD this to stack vertically */
+  flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Push content to top */
-  min-height: 100vh; /* Keep full screen if you want */
+  justify-content: flex-start;
+  min-height: 100vh;
   text-align: center;
-  padding: 40px 20px 20px 20px; /* Top padding a bit bigger */
-  gap: 20px; /* Space between slideshow and text */
+  padding: 40px 20px 20px 20px;
+  gap: 20px;
+}
+
+.hero-text {
+  margin-top: 20px;
 }
 
 .hero-text h1 {
@@ -80,6 +175,7 @@ main {
   transform: translateY(20px);
   animation: heroTextFade 1s ease forwards;
   animation-delay: 0.5s;
+  margin-top: 20px;
 }
 
 @keyframes heroTextFade {
@@ -89,34 +185,77 @@ main {
   }
 }
 
-section {
-  padding: 60px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+/* Slideshow */
+.slideshow {
+  width: 90%;
+  max-width: 800px;
+  aspect-ratio: 1 / 1;
+  margin: 20px auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+  isolation: isolate;
 }
 
+.slideshow:hover {
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+  transform: scale(1.01);
+}
+
+.slides {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  position: relative;
+}
+
+.slides img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+/* -------------------------------- */
+/* 📑 Section Styles */
+/* -------------------------------- */
 .about h1, .careers h1, .contact h1 {
   font-size: 2.5rem;
   color: #ffffff;
   margin-bottom: 20px;
 }
 
-p, li {
-  color: #cccccc;
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-ul {
-  padding-left: 20px;
-}
-
-footer {
-  text-align: center;
+.about p, .careers p, .contact p,
+.about ul, .careers ul, .contact ul {
+  background: rgba(255, 255, 255, 0.03);
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.8);
-  font-size: 0.9rem;
-  color: #b0b0b0;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+/* -------------------------------- */
+/* 📥 Forms & Buttons */
+/* -------------------------------- */
+form label {
+  display: block;
+  margin-bottom: 8px;
+  color: #f0f0f0;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #f0f0f0;
 }
 
 button, input[type="submit"] {
@@ -134,24 +273,9 @@ button:hover, input[type="submit"]:hover {
   background-color: #d7263d;
 }
 
-input, textarea {
-  width: 100%;
-  padding: 12px;
-  margin-top: 8px;
-  margin-bottom: 16px;
-  border: 1px solid #555;
-  border-radius: 4px;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #f0f0f0;
-}
-
-form label {
-  display: block;
-  margin-bottom: 8px;
-  color: #f0f0f0;
-}
-
-/* Preloader Effect */
+/* -------------------------------- */
+/* 🌀 Preloader */
+/* -------------------------------- */
 #preloader {
   position: fixed;
   top: 0;
@@ -188,73 +312,24 @@ form label {
     visibility: hidden;
   }
 }
-.about p, .careers p, .contact p, .about ul, .careers ul, .contact ul {
-  background: rgba(255, 255, 255, 0.03);
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-}
-h2 {
-  font-size: 2rem;
-  color: #ffffff;
-  margin: 30px 0 10px 0;
-  text-shadow: 0 1px 4px rgba(0, 255, 204, 0.3);
-}
-ul li {
-  margin-bottom: 10px;
-  position: relative;
-  padding-left: 20px;
-}
 
-ul li::before {
-  position: absolute;
-  left: 0;
-  color: #00ffcc;
-  font-size: 1rem;
-}
-@media (max-width: 768px) {
-  .navbar {
-    padding: 20px 20px; /* Reduce side padding */
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
-  }
-
-  .logo {
-    font-size: 20px;
-  }
-
-  footer {
-    padding: 15px 10px;
-    font-size: 0.8rem;
-  }
-
-  section {
-    padding: 40px 15px;
-  }
-
-  .hero-text h1 {
-    font-size: 2rem;
-    padding: 0 10px;
-  }
-}
+/* -------------------------------- */
+/* 📩 Email Link */
+/* -------------------------------- */
 .email-link {
-  color: #00ffcc;       /* Your brand teal color */
-  text-decoration: none; /* Removes underline */
-  transition: color 0.3s; /* Smooth hover effect */
+  color: #00ffcc;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
 .email-link:hover {
-  color: #ffffff;        /* White on hover */
-  text-decoration: underline; /* Optional underline */
+  color: #ffffff;
+  text-decoration: underline;
 }
 
+/* -------------------------------- */
+/* 🦶 Footer Styles */
+/* -------------------------------- */
 .footer {
   background-color: #002f2f;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -306,96 +381,32 @@ ul li::before {
   transform: scale(1.15);
 }
 
-/* Responsive Footer */
-@media (max-width: 768px) {
-  .footer-content {
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-  }
-
-  .social-icons {
-    justify-content: center;
-    margin-top: 20px;
-  }
-}
 /* -------------------------------- */
-/* 📱 Mobile Improvements for Nova Frames */
+/* 📱 Responsive Media Queries */
 /* -------------------------------- */
-
 @media (max-width: 768px) {
-  .footer {
+  .navbar {
+    padding: 20px;
     flex-direction: column;
-    align-items: center;
-    padding: 30px 20px;
-    text-align: center;
-  }
-
-  .social-icons {
-    position: static;
-    margin-top: 20px;
-    justify-content: center;
-  }
-
-  .social-icons a img {
-    width: 36px;
-    height: 36px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-text h1 {
-    font-size: 1.8rem;
-  }
-
-  .footer p, .footer-logo {
-    font-size: 0.8rem;
-  }
-}
-
-/* Improve tap targets */
-.nav-links li a,
-.social-icons a {
-  padding: 10px;
-}
-/* Hamburger Styles */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 6px;
-}
-
-.hamburger span {
-  width: 25px;
-  height: 3px;
-  background: #f0f0f0;
-  border-radius: 2px;
-  transition: 0.3s;
-}
-
-/* Mobile Nav */
-@media (max-width: 768px) {
-  .hamburger {
-    display: flex;
-    z-index: 1001;  /* Ensure hamburger stays above the content */
+    gap: 10px;
   }
 
   .nav-links {
-    position: fixed; /* Position it fixed so it doesn’t go over content */
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    position: fixed;
     top: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.9);
-    flex-direction: column;
     width: 100%;
     height: 100%;
     padding: 40px;
-    border-radius: 8px;
     opacity: 0;
     pointer-events: none;
     transform: translateY(-20px);
     transition: 0.3s ease;
-    z-index: 1000; /* Ensure menu stays below the hamburger */
+    z-index: 1000;
   }
 
   .nav-links.active {
@@ -412,74 +423,18 @@ ul li::before {
     font-size: 1.5rem;
     color: #f0f0f0;
   }
-}
 
-/* Animated Hamburger */
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg);
-  position: relative;
-  top: 8px;
-}
-
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg);
-  position: relative;
-  top: -8px;
-}
-
-/* Add padding when mobile menu is active */
-@media (max-width: 768px) {
-  body.active {
-    padding-top: 60px; /* Adjust the padding based on your menu height */
+  .hamburger {
+    display: flex;
   }
 }
 
-/* Footer text consistency */
-.footer p, .footer-logo {
-  font-size: 0.9rem; /* Same size for both */
-}
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
 
-.footer .logo {
-  font-size: 1.1rem; /* Slightly bigger for the site name */
-}
-
-@media (max-width: 768px) {
   .footer p, .footer-logo {
-    font-size: 0.8rem; /* Adjust for smaller screens */
+    font-size: 0.8rem;
   }
-
-  .footer .logo {
-    font-size: 1rem; /* Ensure site name is consistent */
-  }
-}
-.slideshow {
-  width: 90%;            /* 90% of the container width */
-  max-width: 800px;       /* Don't go larger than 800px */
-  aspect-ratio: 1 / 1;    /* Maintain square shape */
-  margin: 20px auto;
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-}
-
-.slides img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-/* Tighter spacing below the slideshow */
-.hero-text {
-  margin-top: 20px; /* Smaller margin instead of big one */
-}
-
-.hero-text h1 {
-  margin-top: 20px; /* Even smaller top space for headline */
-  font-size: 2.5rem; /* Optional: slightly smaller font if needed */
 }
