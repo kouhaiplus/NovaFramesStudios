@@ -10,43 +10,49 @@
   <header class="navbar">
     <div class="logo">Nova Frames</div>
     <nav>
-     <ul class="nav-links">
-  <li><a href="index.html">HOME</a></li>
-  <li><a href="career.html">CAREER</a></li>
-  <li><a href="about.html">ABOUT</a></li>
-  <li><a href="contact.html">CONTACT</a></li>
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="career.html">CAREER</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+      </ul>
+      <div class="hamburger"><span></span><span></span><span></span></div>
     </nav>
   </header>
-<main> <!-- ⭐ Wrap your main content inside main tag -->
-  <section class="careers">
-    <h1>Career Opportunities at Nova Frames</h1>
-     <p>
-        Nova Frames Entertainment is always on the lookout for passionate, talented, and creative individuals to be a part of our journey. If you're excited about storytelling through stunning visuals and want to collaborate with a vibrant team, we’d love to hear from you!
-      </p>
-      <p>
-        📧 To express your interest or apply, please send your resume and portfolio to
-        <strong><a href="mailto:career@novaframesstudios.com" class="email-link">
-  career@novaframesstudios.com
-</a></a></strong>.
-      </p>
-    </ul>
-  </section>
-</main> <!-- End main -->
-    <footer class="footer">
-  <div class="footer-content">
-    <div class="footer-left">
-      <div class="footer-logo">Nova Frames</div>
-      <p>&copy; 2025 Nova Frames Studious. All rights reserved.</p>
+
+  <main>
+    <section class="careers">
+      <h1>Career Opportunities at Nova Frames</h1>
+      <p>Nova Frames Entertainment is always on the lookout for passionate, talented, and creative individuals to be a part of our journey. If you're excited about storytelling through stunning visuals and want to collaborate with a vibrant team, we’d love to hear from you!</p>
+      <p>📧 To express your interest or apply, please send your resume and portfolio to <strong><a href="mailto:career@novaframesstudios.com" class="email-link">career@novaframesstudios.com</a></strong>.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        <div class="footer-logo">Nova Frames</div>
+        <p>&copy; 2025 Nova Frames Studios. All rights reserved.</p>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="social-icons">
+        <a href="https://linkedin.com" target="_blank"><img src="images/linkedin.svg" alt="LinkedIn" /></a>
+        <a href="https://youtube.com" target="_blank"><img src="images/youtube.svg" alt="YouTube" /></a>
+        <a href="https://facebook.com" target="_blank"><img src="images/facebook.svg" alt="Facebook" /></a>
+        <a href="https://instagram.com" target="_blank"><img src="images/instagram.svg" alt="Instagram" /></a>
+        <a href="https://twitter.com" target="_blank"><img src="images/twitter.svg" alt="Twitter" /></a>
+      </div>
     </div>
-    <div class="footer-divider"></div>
-    <div class="social-icons">
-      <a href="https://linkedin.com" target="_blank"><img src="images/linkedin.svg" alt="LinkedIn" /></a>
-      <a href="https://youtube.com" target="_blank"><img src="images/youtube.svg" alt="YouTube" /></a>
-      <a href="https://facebook.com" target="_blank"><img src="images/facebook.svg" alt="Facebook" /></a>
-      <a href="https://instagram.com" target="_blank"><img src="images/instagram.svg" alt="Instagram" /></a>
-      <a href="https://twitter.com" target="_blank"><img src="images/twitter.svg" alt="Twitter" /></a>
-    </div>
-  </div>
-</footer>
+  </footer>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      hamburger.classList.toggle('active');
+      document.body.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
