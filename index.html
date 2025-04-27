@@ -20,7 +20,6 @@
       </ul>
       <div class="hamburger">
         <span></span><span></span><span></span>
-        <div class="close-text">CLOSE</div>
       </div>
     </nav>
   </header>
@@ -65,7 +64,6 @@
       const preloader = document.getElementById('preloader');
       const hamburger = document.querySelector('.hamburger');
       const navLinks = document.querySelector('.nav-links');
-      const closeText = document.querySelector('.close-text');
 
       // Preloader Logic
       if (sessionStorage.getItem('preloaderSeen') === 'true') {
@@ -94,13 +92,6 @@
           hamburger.classList.remove('active');
           document.body.classList.remove('active');
         }
-      });
-
-      // Also allow closing menu by clicking "CLOSE" text
-      closeText.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        hamburger.classList.remove('active');
-        document.body.classList.remove('active');
       });
 
       // Slideshow Logic
