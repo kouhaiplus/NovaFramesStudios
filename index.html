@@ -8,6 +8,7 @@
 </head>
 <body>
   <div id="preloader"><div class="preloader-text">Nova Frames</div></div>
+
   <header class="navbar">
     <div class="logo">Nova Frames</div>
     <nav>
@@ -17,42 +18,35 @@
         <li><a href="about.html">ABOUT</a></li>
         <li><a href="contact.html">CONTACT</a></li>
       </ul>
-      <div class="hamburger"><span></span><span></span><span></span></div>
+      <div class="hamburger">
+        <span></span><span></span><span></span>
+        <div class="close-text">CLOSE</div>
+      </div>
     </nav>
   </header>
+
   <main>
-   <section class="slideshow">
-    <div class="slides fade">
-      <img src="images/slide1.jpg" alt="Slide 1" />
-    </div>
-    <div class="slides fade">
-      <img src="images/slide2.jpg" alt="Slide 2" />
-    </div>
-    <div class="slides fade">
-      <img src="images/slide3.jpg" alt="Slide 3" />
-    </div>
-	<div class="slides fade">
-      <img src="images/slide4.jpg" alt="Slide 4" />
-    </div>
-	<div class="slides fade">
-      <img src="images/slide5.jpg" alt="Slide 5" />
-    </div>
-	<div class="slides fade">
-      <img src="images/slide6.jpg" alt="Slide 6" />
-    </div>
-    <!-- Add more slides if you want -->
-  </section>
+    <section class="slideshow">
+      <div class="slides fade"><img src="images/slide1.webp" alt="Slide 1" loading="lazy"></div>
+      <div class="slides fade"><img src="images/slide2.webp" alt="Slide 2" loading="lazy"></div>
+      <div class="slides fade"><img src="images/slide3.webp" alt="Slide 3" loading="lazy"></div>
+      <div class="slides fade"><img src="images/slide4.webp" alt="Slide 4" loading="lazy"></div>
+      <div class="slides fade"><img src="images/slide5.webp" alt="Slide 5" loading="lazy"></div>
+      <div class="slides fade"><img src="images/slide6.webp" alt="Slide 6" loading="lazy"></div>
+    </section>
+
     <section class="hero">
       <div class="hero-text">
         <h1>Artists and Innovators in the World of Digital Entertainment</h1>
       </div>
     </section>
   </main>
+
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-left">
         <div class="footer-logo">Nova Frames</div>
-        <p>&copy; 2025 Nova Frames Studious. All rights reserved.</p>
+        <p>&copy; 2025 Nova Frames Studios. All rights reserved.</p>
       </div>
       <div class="footer-divider"></div>
       <div class="social-icons">
@@ -64,42 +58,67 @@
       </div>
     </div>
   </footer>
+
+  <!-- ✅ Optimized JavaScript -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const preloader = document.getElementById('preloader');
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      const closeText = document.querySelector('.close-text');
+
+      // Preloader Logic
       if (sessionStorage.getItem('preloaderSeen') === 'true') {
         preloader.style.display = 'none';
-        return;
+      } else {
+        window.addEventListener('load', () => {
+          setTimeout(() => {
+            preloader.style.display = 'none';
+            sessionStorage.setItem('preloaderSeen', 'true');
+          }, 3000);
+        });
       }
-      window.addEventListener('load', () => {
-        setTimeout(() => {
-          preloader.style.display = 'none';
-          sessionStorage.setItem('preloaderSeen', 'true');
-        }, 3000);
+
+      // Hamburger Toggle
+      hamburger.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent immediate document click
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
+        document.body.classList.toggle('active');
       });
-    });
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      hamburger.classList.toggle('active');
-      document.body.classList.toggle('active');
+
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+          navLinks.classList.remove('active');
+          hamburger.classList.remove('active');
+          document.body.classList.remove('active');
+        }
+      });
+
+      // Also allow closing menu by clicking "CLOSE" text
+      closeText.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+        document.body.classList.remove('active');
+      });
+
+      // Slideshow Logic
+      let slideIndex = 0;
+      const slides = document.getElementsByClassName("slides");
+
+      function showSlides() {
+        for (let slide of slides) {
+          slide.style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1; }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 4000);
+      }
+
+      showSlides();
     });
   </script>
-  <script>
-let slideIndex = 0;
-showSlides();
-
-function showSlides() {
-  let slides = document.getElementsByClassName("slides");
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}    
-  slides[slideIndex - 1].style.display = "block";  
-  setTimeout(showSlides, 4000); // Change slide every 4 seconds
-}
-</script>
 </body>
 </html>
