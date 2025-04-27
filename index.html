@@ -21,6 +21,27 @@
     </nav>
   </header>
   <main>
+   <section class="slideshow">
+    <div class="slides fade">
+      <img src="images/slide1.jpg" alt="Slide 1" />
+    </div>
+    <div class="slides fade">
+      <img src="images/slide2.jpg" alt="Slide 2" />
+    </div>
+    <div class="slides fade">
+      <img src="images/slide3.jpg" alt="Slide 3" />
+    </div>
+	<div class="slides fade">
+      <img src="images/slide4.jpg" alt="Slide 4" />
+    </div>
+	<div class="slides fade">
+      <img src="images/slide5.jpg" alt="Slide 5" />
+    </div>
+	<div class="slides fade">
+      <img src="images/slide6.jpg" alt="Slide 6" />
+    </div>
+    <!-- Add more slides if you want -->
+  </section>
     <section class="hero">
       <div class="hero-text">
         <h1>Artists and Innovators in the World of Digital Entertainment</h1>
@@ -65,5 +86,20 @@
       document.body.classList.toggle('active');
     });
   </script>
+  <script>
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let slides = document.getElementsByClassName("slides");
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  slides[slideIndex - 1].style.display = "block";  
+  setTimeout(showSlides, 4000); // Change slide every 4 seconds
+}
+</script>
 </body>
 </html>
