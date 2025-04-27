@@ -68,7 +68,7 @@ p, li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 20px 400px;
   background-color: rgba(0, 0, 0, 0.7);
   position: relative;
 }
@@ -104,9 +104,9 @@ p, li {
 .hamburger {
   width: 30px;
   height: 22px;
-  position: absolute; /* Positioning it absolutely */
-  right: 20px; /* Distance from the right side */
-  display: none; /* Initially hidden */
+  position: absolute;
+  right: 20px;
+  display: none;
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
@@ -122,7 +122,6 @@ p, li {
   transition: all 0.4s ease;
 }
 
-/* Close "text" shown when active */
 .hamburger .close-text {
   display: none;
   margin-top: 5px;
@@ -136,7 +135,6 @@ p, li {
   display: block;
 }
 
-/* Hamburger transforms into X */
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
@@ -384,9 +382,15 @@ button:hover, input[type="submit"]:hover {
 /* -------------------------------- */
 /* 📱 Responsive Media Queries */
 /* -------------------------------- */
+@media (max-width: 1200px) {
+  .navbar {
+    padding: 20px 80px;
+  }
+}
+
 @media (max-width: 768px) {
   .navbar {
-    padding: 20px;
+    padding: 20px 20px;
     flex-direction: column;
     gap: 10px;
   }
