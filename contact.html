@@ -11,54 +11,65 @@
     <div class="logo">Nova Frames</div>
     <nav>
       <ul class="nav-links">
-  <li><a href="index.html">HOME</a></li>
-  <li><a href="career.html">CAREER</a></li>
-  <li><a href="about.html">ABOUT</a></li>
-  <li><a href="contact.html">CONTACT</a></li>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="career.html">CAREER</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+      </ul>
+      <div class="hamburger"><span></span><span></span><span></span></div>
     </nav>
   </header>
-<main> <!-- ⭐ Wrap your main content inside main tag -->
-  <section class="contact">
-    <h1>Contact Nova Frames</h1>
-    <p>We would love to hear from you! Whether you are looking to collaborate, inquire about our services, or just want to say hello, feel free to reach out.</p>
-	 <p>
-        📧 Email: <strong><a href="mailto:contact@novaframesstudios.com" class="email-link">
-  contact@novaframesstudios.com
-</a></strong><br />
+
+  <main>
+    <section class="contact">
+      <h1>Contact Nova Frames</h1>
+      <p>We would love to hear from you! Whether you are looking to collaborate, inquire about our services, or just want to say hello, feel free to reach out.</p>
+      <p>
+        📧 Email: <strong><a href="mailto:contact@novaframesstudios.com" class="email-link">contact@novaframesstudios.com</a></strong><br />
         📞 Phone: +91-XXXXXXXXXX<br />
         📍 Location: Mumbai, India
       </p>
-	
 
-    <form>
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required />
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
 
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" rows="4" required></textarea>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
 
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
-</main> <!-- End main -->
-    <footer class="footer">
-  <div class="footer-content">
-    <div class="footer-left">
-      <div class="footer-logo">Nova Frames</div>
-      <p>&copy; 2025 Nova Frames Studious. All rights reserved.</p>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        <div class="footer-logo">Nova Frames</div>
+        <p>&copy; 2025 Nova Frames Studios. All rights reserved.</p>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="social-icons">
+        <a href="https://linkedin.com" target="_blank"><img src="images/linkedin.svg" alt="LinkedIn" /></a>
+        <a href="https://youtube.com" target="_blank"><img src="images/youtube.svg" alt="YouTube" /></a>
+        <a href="https://facebook.com" target="_blank"><img src="images/facebook.svg" alt="Facebook" /></a>
+        <a href="https://instagram.com" target="_blank"><img src="images/instagram.svg" alt="Instagram" /></a>
+        <a href="https://twitter.com" target="_blank"><img src="images/twitter.svg" alt="Twitter" /></a>
+      </div>
     </div>
-    <div class="footer-divider"></div>
-    <div class="social-icons">
-      <a href="https://linkedin.com" target="_blank"><img src="images/linkedin.svg" alt="LinkedIn" /></a>
-      <a href="https://youtube.com" target="_blank"><img src="images/youtube.svg" alt="YouTube" /></a>
-      <a href="https://facebook.com" target="_blank"><img src="images/facebook.svg" alt="Facebook" /></a>
-      <a href="https://instagram.com" target="_blank"><img src="images/instagram.svg" alt="Instagram" /></a>
-      <a href="https://twitter.com" target="_blank"><img src="images/twitter.svg" alt="Twitter" /></a>
-    </div>
-  </div>
-</footer>
+  </footer>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      hamburger.classList.toggle('active');
+      document.body.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
