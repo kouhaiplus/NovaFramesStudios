@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nova Frames</title>
   <link rel="stylesheet" href="styles/main.css" />
 </head>
-<body class="page-bg">
+<body>
+  <div id="preloader"><div class="preloader-text">Nova Frames</div></div>
   <header class="navbar">
     <div class="logo">Nova Frames</div>
     <nav>
@@ -19,37 +20,18 @@
       <div class="hamburger"><span></span><span></span><span></span></div>
     </nav>
   </header>
-
   <main>
-    <section class="contact">
-      <h1>Contact Nova Frames</h1>
-      <p>We would love to hear from you! Whether you are looking to collaborate, inquire about our services, or just want to say hello, feel free to reach out.</p>
-      <p>
-        📧 Email: <strong><a href="mailto:contact@novaframesstudios.com" class="email-link">contact@novaframesstudios.com</a></strong><br />
-        📞 Phone: +91-XXXXXXXXXX<br />
-        📍 Location: Mumbai, India
-      </p>
-
-      <form>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required />
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required />
-
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
-
-        <button type="submit">Send Message</button>
-      </form>
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Artists and Innovators in the World of Digital Entertainment</h1>
+      </div>
     </section>
   </main>
-
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-left">
         <div class="footer-logo">Nova Frames</div>
-        <p>&copy; 2025 Nova Frames Studios. All rights reserved.</p>
+        <p>&copy; 2025 Nova Frames Studious. All rights reserved.</p>
       </div>
       <div class="footer-divider"></div>
       <div class="social-icons">
@@ -61,8 +43,20 @@
       </div>
     </div>
   </footer>
-
   <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const preloader = document.getElementById('preloader');
+      if (sessionStorage.getItem('preloaderSeen') === 'true') {
+        preloader.style.display = 'none';
+        return;
+      }
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          preloader.style.display = 'none';
+          sessionStorage.setItem('preloaderSeen', 'true');
+        }, 3000);
+      });
+    });
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
     hamburger.addEventListener('click', () => {
