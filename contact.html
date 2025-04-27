@@ -30,7 +30,7 @@
         📍 Location: Mumbai, India
       </p>
 
-      <form>
+      <form id="contact-form">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required />
 
@@ -63,12 +63,25 @@
   </footer>
 
   <script>
+    // Hamburger Menu Logic
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('active');
       hamburger.classList.toggle('active');
       document.body.classList.toggle('active');
+    });
+
+    // Contact Form Validation
+    document.querySelector('#contact-form').addEventListener('submit', function(e) {
+      const name = document.querySelector('#name').value;
+      const email = document.querySelector('#email').value;
+      const message = document.querySelector('#message').value;
+
+      if (!name || !email || !message) {
+        alert('Please fill out all fields before submitting.');
+        e.preventDefault();  // Prevent form submission
+      }
     });
   </script>
 </body>
